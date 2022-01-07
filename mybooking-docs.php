@@ -230,25 +230,6 @@ function mybooking_help_taxonomies() {
         )
     );
 
-		// Create terms
-		if ( !term_exists( 'Primeros pasos', 'help-center') ){
-				wp_insert_term( 'Primeros pasos', 'help-center' );
-		}
-		if ( !term_exists( 'Panel de gestión', 'help-center') ){
-				wp_insert_term( 'Panel de gestión', 'help-center' );
-		}
-		if ( !term_exists( 'Cloud hosting', 'help-center') ){
-				wp_insert_term( 'Cloud hosting', 'help-center' );
-		}
-		if ( !term_exists( 'Motor de reservas', 'help-center') ){
-				wp_insert_term( 'Motor de reservas', 'help-center' );
-		}
-		if ( !term_exists( 'Tema de WordPress', 'help-center') ){
-				wp_insert_term( 'Tema de WordPress', 'help-center' );
-		}
-		if ( !term_exists( 'Recursos de diseño', 'help-center') ){
-				wp_insert_term( 'Recursos de diseño', 'help-center' );
-		}
 }
 add_action( 'init', 'mybooking_help_taxonomies', 0 );
 
