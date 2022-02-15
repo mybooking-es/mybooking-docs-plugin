@@ -20,9 +20,9 @@ get_header(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
     	<div class="post_content mybooking-docs">
     		<div class="container" tabindex="-1">
-    			<div class="mb-row">
+    			<div class="row">
 
-    				<div class="mb-col-md-10 mb-col-center">
+    				<div class="col-md-10 offset-md-1">
 
 							<?php echo mybooking_breadcrumbs(); ?>
 
@@ -46,7 +46,7 @@ get_header(); ?>
 							<!-- Categories navigation -->
 
 							<div class="mybooking-docs_footer-nav">
-								<div class="mb-col-md-6">
+								<div class="col-md-6">
 
 									<!-- Help categories -->
 									<h3 class="mybooking-docs_categories-title">
@@ -76,7 +76,7 @@ get_header(); ?>
 									</ul>
 								</div>
 
-								<div class="mb-col-md-6">
+								<div class="col-md-6">
 
 									<!-- Docs categories -->
 									<h3 class="mybooking-docs_categories-title">

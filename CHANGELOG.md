@@ -1,5 +1,10 @@
 # Mybooking Docs plugin Changelog
 
+## 1.0.4
+
+### Fixed
+Grid system : Use bootstrap 4
+
 ## 1.0.3
 
 ### Fixed

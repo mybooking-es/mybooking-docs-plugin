@@ -30,15 +30,14 @@ get_header(); ?>
 
 <div class="page_content mybooking-docs">
 	<div class="container" id="content" tabindex="-1">
-		<div class="mb-row">
 
+		<div class="row">
 			<!-- Page Header -->
-
-			<div class="mb-col-md-12">
+			<div class="col-md-12">
 				<div class="entry-header">
 					<h1 class="mybooking-docs_page-title"><?php echo __('Mybooking Help Center', 'mybooking-docs') ?></h1>
 					<hr>
-					<div class="mb-col-md-8 mb-col-center">
+					<div class="col-md-8 offset-md-2">
 						<form role="search" method="get" id="searchform" action="#">
 							<div class="mybooking-docs_search">
 								<input class="mybooking-docs_search-field" type="text" value="" name="s" id="s" placeholder="Buscar" />
@@ -51,10 +50,93 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
+		</div>	
 
-			<div class="mb-col-md-9 mb-col-right">
 
-				<!-- Articles -->
+		<div class="row">
+
+			<!-- Navigation -->
+			<div class="col-md-3">
+
+				<!-- Widgets top -->
+				<?php if ( is_active_sidebar( 'sidebar-top' ) ) { ?>
+					<div class="mybooking-docs_widget-area">
+						 <?php dynamic_sidebar('sidebar-top'); ?>
+					</div>
+				<?php } ?>
+
+				<div class="mybooking-docs_categories">
+					<div class="col-lg-12">
+
+						<!-- Help categories -->
+						<h3 class="mybooking-docs_categories-title">
+							<span class="dashicons dashicons-editor-help"></span>
+							<?php echo __('Soporte', 'mybooking-docs') ?>
+						</h3>
+
+						<ul class="mybooking-docs_categories-list">
+
+							<?php
+								$help_taxonomies = get_object_taxonomies( 'help' );
+								if( count( $help_taxonomies ) > 0 ) {
+									foreach( $help_taxonomies as $tax ) {
+										$args = array(
+												 'orderby' => 'name',
+												 'show_count' => 0,
+												 'pad_counts' => 0,
+												 'hierarchical' => 1,
+												 'show_option_all' => __( 'Ver todo','mybooking-docs' ),
+												 'taxonomy' => $tax,
+												 'title_li' => ''
+											 );
+										wp_list_categories( $args );
+									}
+								}
+							?>
+						</ul>
+					</div>
+					<div class="col-lg-12">
+
+						<!-- Docs categories -->
+						<h3 class="mybooking-docs_categories-title">
+							<span class="dashicons dashicons-editor-code"></span>
+							<?php echo __('Developer', 'mybooking-docs') ?>
+						</h3>
+
+						<ul class="mybooking-docs_categories-list">
+
+							<?php
+								$docs_taxonomies = get_object_taxonomies( 'docs' );
+								if( count( $docs_taxonomies ) > 0 ) {
+									foreach( $docs_taxonomies as $taxonomies ) {
+										$args = array(
+												 'orderby' => 'name',
+												 'show_count' => 0,
+												 'pad_counts' => 0,
+												 'hierarchical' => 1,
+												 'show_option_all' => __( 'Ver todo','mybooking-docs' ),
+												 'taxonomy' => $taxonomies,
+												 'title_li' => ''
+											 );
+										wp_list_categories( $args );
+									}
+								}
+							?>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Widgets bottom -->
+				<?php if ( is_active_sidebar( 'sidebar-bottom' ) ) { ?>
+					<div class="mybooking-docs_widget-area">
+						 <?php dynamic_sidebar('sidebar-bottom'); ?>
+					</div>
+				<?php } ?>
+			</div>
+
+
+			<!-- Articles -->
+			<div class="col-md-9">
 
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -97,9 +179,10 @@ get_header(); ?>
 											<?php echo wp_kses( sprintf( _x('<a href="%s" rel="bookmark" class="mybooking-docs_post-title-link untitled">Untitled</a>', 'content_blog', 'mybooking'), esc_url( $mybooking_permalink ) ), $mybooking_allowed_html ); ?>
 										</h2>
 									<?php } ?>
-								<!-- </div>
 
-								<div class="mb-card_body"> -->
+									<?php the_excerpt() ?>
+
+									<br>
 
 									<!-- Read more -->
 									<a class="mybooking-docs_post-link" href="<?php the_permalink(); ?>"><?php echo __( 'Read More','mybooking-docs' ); ?> <span class="dashicons dashicons-arrow-right-alt"></span></a>
@@ -121,85 +204,6 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<!-- Navigation -->
-
-			<div class="mb-col-md-3">
-
-				<!-- Widgets top -->
-				<?php if ( is_active_sidebar( 'sidebar-top' ) ) { ?>
-					<div class="mybooking-docs_widget-area">
-						 <?php dynamic_sidebar('sidebar-top'); ?>
-					</div>
-				<?php } ?>
-
-				<div class="mybooking-docs_categories">
-					<div class="mb-col-lg-12">
-
-						<!-- Help categories -->
-						<h3 class="mybooking-docs_categories-title">
-							<span class="dashicons dashicons-editor-help"></span>
-							<?php echo __('Soporte', 'mybooking-docs') ?>
-						</h3>
-
-						<ul class="mybooking-docs_categories-list">
-
-							<?php
-								$help_taxonomies = get_object_taxonomies( 'help' );
-								if( count( $help_taxonomies ) > 0 ) {
-									foreach( $help_taxonomies as $tax ) {
-										$args = array(
-												 'orderby' => 'name',
-												 'show_count' => 0,
-												 'pad_counts' => 0,
-												 'hierarchical' => 1,
-												 'show_option_all' => __( 'Ver todo','mybooking-docs' ),
-												 'taxonomy' => $tax,
-												 'title_li' => ''
-											 );
-										wp_list_categories( $args );
-									}
-								}
-							?>
-						</ul>
-					</div>
-					<div class="mb-col-lg-126">
-
-						<!-- Docs categories -->
-						<h3 class="mybooking-docs_categories-title">
-							<span class="dashicons dashicons-editor-code"></span>
-							<?php echo __('Developer', 'mybooking-docs') ?>
-						</h3>
-
-						<ul class="mybooking-docs_categories-list">
-
-							<?php
-								$docs_taxonomies = get_object_taxonomies( 'docs' );
-								if( count( $docs_taxonomies ) > 0 ) {
-									foreach( $docs_taxonomies as $taxonomies ) {
-										$args = array(
-												 'orderby' => 'name',
-												 'show_count' => 0,
-												 'pad_counts' => 0,
-												 'hierarchical' => 1,
-												 'show_option_all' => __( 'Ver todo','mybooking-docs' ),
-												 'taxonomy' => $taxonomies,
-												 'title_li' => ''
-											 );
-										wp_list_categories( $args );
-									}
-								}
-							?>
-						</ul>
-					</div>
-				</div>
-
-				<!-- Widgets bottom -->
-				<?php if ( is_active_sidebar( 'sidebar-bottom' ) ) { ?>
-					<div class="mybooking-docs_widget-area">
-						 <?php dynamic_sidebar('sidebar-bottom'); ?>
-					</div>
-				<?php } ?>
-			</div>
 		</div>
 	</div>
 </div>
