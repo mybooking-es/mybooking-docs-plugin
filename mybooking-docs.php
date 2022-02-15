@@ -12,7 +12,7 @@
  * Plugin Name:       Mybooking Docs
  * Plugin URI:        https://mybooking.es
  * Description:       Simple plugin to create a Custom Post Types for Mybooking's documentation
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Mybooking Team
  * Author URI:        https://mybooking.es
  * License:           GPL-2.0+
@@ -85,7 +85,7 @@ function mybooking_docs() {
 		'label'                 => __( 'Doc', 'mybooking-docs' ),
 		'description'           => __( 'Mybooking technical articles.', 'mybooking-docs' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt' ),
 		'taxonomies'            => array( '' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -182,7 +182,7 @@ function mybooking_help() {
 		'label'                 => __( 'Help', 'mybooking-docs' ),
 		'description'           => __( 'Mybooking tutorial and guides.', 'mybooking-docs' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt' ),
 		'taxonomies'            => array( '' ),
 		'hierarchical'          => false,
 		'public'                => true,

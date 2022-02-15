@@ -1,5 +1,10 @@
 # Mybooking Docs plugin Changelog
 
+## 1.0.5
+
+### Fixed
+Archive page
+
 ## 1.0.4
 
 ### Fixed

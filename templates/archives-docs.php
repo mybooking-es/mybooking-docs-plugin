@@ -36,22 +36,29 @@ get_header(); ?>
 			<div class="col-md-12">
 				<div class="entry-header">
 					<h1 class="mybooking-docs_page-title"><?php echo __('Mybooking Help Center', 'mybooking-docs') ?></h1>
-					<hr>
-					<div class="col-md-8 offset-md-2">
-						<form role="search" method="get" id="searchform" action="#">
-							<div class="mybooking-docs_search">
-								<input class="mybooking-docs_search-field" type="text" value="" name="s" id="s" placeholder="Buscar" />
-								<input type="hidden" value="1" name="sentence" />
-								<input type="hidden" value="help" name="post_type" />
-								<input type="hidden" value="docs" name="post_type" />
-								<input class="mybooking-docs_search-button" type="submit" id="searchsubmit" value="Buscar" />
-							</div>
-						</form>
-					</div>
 				</div>
 			</div>
 		</div>	
 
+		<hr>
+		<div class="row">
+			<!-- Search -->
+			<div class="col-md-8 offset-md-2">
+				<form role="search" method="get" id="searchform" action="#">
+					<div class="mybooking-docs_search">
+						<input class="mybooking-docs_search-field" type="text" value="" name="s" id="s" placeholder="Buscar" />
+						<input type="hidden" value="1" name="sentence" />
+						<input type="hidden" value="help" name="post_type" />
+						<input type="hidden" value="docs" name="post_type" />
+						<input class="mybooking-docs_search-button" type="submit" id="searchsubmit" value="Buscar" />
+					</div>
+				</form>
+			</div>
+		</div>	
+
+    <hr>
+
+    <!-- Contents -->
 
 		<div class="row">
 
