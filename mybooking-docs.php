@@ -12,7 +12,7 @@
  * Plugin Name:       Mybooking Docs
  * Plugin URI:        https://mybooking.es
  * Description:       Simple plugin to create a Custom Post Types for Mybooking's documentation
- * Version:           1.0.3
+ * Version:           1.0.7
  * Author:            Mybooking Team
  * Author URI:        https://mybooking.es
  * License:           GPL-2.0+
@@ -42,7 +42,7 @@ add_action( 'wp_enqueue_scripts', 'mybooking_docs_css' );
 /**
  * Call CPTs
  *
- * @since 1.0.3
+ * @since 1.0.6
  */
 require_once('post-types/doc-post.php');
 require_once('post-types/help-post.php');

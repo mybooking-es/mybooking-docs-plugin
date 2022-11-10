@@ -4,7 +4,6 @@
 *
 */
 
-
 /* MYBOOKING FRAMEWORK */
 
 :root {
@@ -871,6 +870,7 @@ button.mb-button a:hover  {
 .mybooking-docs_search {
   display: flex;
   gap: 1rem;
+  padding: 0 1rem;
 }
 
 .mybooking-docs_search-field {

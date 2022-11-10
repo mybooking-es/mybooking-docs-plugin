@@ -6,7 +6,7 @@
 * 	@version 0.0.1
 *   @package WordPress
 *   @subpackage Mybooking Docs Plugin
-*   @since 1.0.3
+*   @since 1.0.6
 */
 
 // Exit if accessed directly.
@@ -20,11 +20,9 @@ get_header(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
     	<div class="post_content mybooking-docs">
     		<div class="container" tabindex="-1">
-    			<div class="mb-row">
+    			<div class="mb-row row">
 
-    				<div class="mb-col-md-12">
-
-							<?php echo mybooking_breadcrumbs(); ?>
+    				<div class="mb-col-md-12 col-md-12">
 
 							<!-- Header -->
 							<?php if ( empty( get_the_title() ) ) { ?>

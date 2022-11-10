@@ -3,24 +3,10 @@
 *		MAIN INDEX PAGE
 *  	---------------
 *
-* 	@version 0.0.8
+* 	@version 0.0.1
 *   @package WordPress
-*   @subpackage Mybooking WordPress Theme
-*   @since Mybooking WordPress Theme 0.1.2
-*
-*   CHANGELOG
-*   Version 0.0.5
-*   - Deleted deprecated Understrap's hero section
-*		Version 0.0.6
-*		- Deleted .wrapper #wrapper-index and #content
-*		- Deleted old hook calling Understrap's no-content partial
-*		- Added right sidebar
-*		- Added pagination hook
-*		- Added no-content message
-*		Version 0.0.7
-*		- Template part route updated
-*		V3rsion 0.0.8
-*		- Moved sidebar to sidebar.php
+*   @subpackage Mybooking Docs Plugin
+*   @since 1.0.0
 */
 
 // Exit if accessed directly.
@@ -30,11 +16,11 @@ get_header(); ?>
 
 <div class="page_content mybooking-docs">
 	<div class="container" id="content" tabindex="-1">
-		<div class="mb-row">
+		<div class="mb-row row">
 
 			<!-- Page Header -->
 
-			<div class="mb-col-md-12">
+			<div class="mb-col-md-12 col-md-12">
 				<div class="entry-header">
 					<h1 class="mybooking-docs_page-title"><?php echo __('Mybooking Help Center', 'mybooking-docs') ?></h1>
 					<hr>
@@ -52,7 +38,7 @@ get_header(); ?>
 				</div>
 			</div>
 
-			<div class="mb-col-md-9 mb-col-right">
+			<div class="mb-col-md-9 col-md-9 mb-col-right pull-right">
 
 				<!-- Articles -->
 
@@ -124,7 +110,7 @@ get_header(); ?>
 
 			<!-- Navigation -->
 
-			<div class="mb-col-md-3">
+			<div class="mb-col-md-3 col-md-3">
 
 				<!-- Widgets top -->
 				<?php if ( is_active_sidebar( 'sidebar-top' ) ) { ?>
@@ -163,7 +149,7 @@ get_header(); ?>
 							?>
 						</ul>
 					</div>
-					<div class="mb-col-lg-126">
+					<div class="mb-col-lg-12">
 
 						<!-- Docs categories -->
 						<h3 class="mybooking-docs_categories-title">

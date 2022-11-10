@@ -5,7 +5,7 @@
  * -----------------------
  *
  * @link              https://mybooking.es
- * @since             1.0.3
+ * @since             1.0.6
  * @package           Mybooking_Docs
  * @version:          1.0.0
  *
