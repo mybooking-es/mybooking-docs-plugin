@@ -20,9 +20,9 @@ get_header(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
     	<div class="post_content mybooking-docs">
     		<div class="container" tabindex="-1">
-    			<div class="row">
+    			<div class="mb-row">
 
-    				<div class="col-md-10 offset-md-1">
+    				<div class="mb-col-md-10 mb-col-center">
 
 							<?php echo mybooking_breadcrumbs(); ?>
 
@@ -36,7 +36,27 @@ get_header(); ?>
 								<h1 class="mybooking-docs_post-header"><?php the_title(); ?></h1>
 							<?php } ?>
 
-							<p class="post_meta"><?php echo wp_kses_post( mybooking_posted_on() ); ?></p>
+							<div class="mybooking-docs_post-info">
+
+								<!-- Categories -->
+								<div class="mybooking-docs_card-category">
+									<?php if ( get_post_type( get_the_ID() ) == 'help' ) {
+										$help_taxonomy = get_the_terms( get_the_ID(), 'help-center' );
+										foreach ( $help_taxonomy as $help_tax ) { ?>
+											<span class="mybooking-docs_card-category-item"><?php echo esc_html( $help_tax->name ); ?></span>
+										<?php }
+
+									} elseif ( get_post_type( get_the_ID() ) == 'docs' ) {
+										$docs_taxonomy = get_the_terms( get_the_ID(), 'developer-docs' );
+										foreach ( $docs_taxonomy as $docs_tax ) { ?>
+											<span class="mybooking-docs_card-category-item"><?php echo esc_html( $docs_tax->name ); ?></span>
+										<?php }
+									} ?>
+								</div>
+
+								<!-- Post meta -->
+								<p class="post_meta"><?php echo wp_kses_post( mybooking_posted_on() ); ?></p>
+							</div>
 
 							<!-- Content -->
     					<div class="entry-content">
@@ -46,7 +66,7 @@ get_header(); ?>
 							<!-- Categories navigation -->
 
 							<div class="mybooking-docs_footer-nav">
-								<div class="col-md-6">
+								<div class="mb-col-md-6">
 
 									<!-- Help categories -->
 									<h3 class="mybooking-docs_categories-title">
@@ -76,7 +96,7 @@ get_header(); ?>
 									</ul>
 								</div>
 
-								<div class="col-md-6">
+								<div class="mb-col-md-6">
 
 									<!-- Docs categories -->
 									<h3 class="mybooking-docs_categories-title">

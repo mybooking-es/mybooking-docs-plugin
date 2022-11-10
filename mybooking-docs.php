@@ -12,7 +12,7 @@
  * Plugin Name:       Mybooking Docs
  * Plugin URI:        https://mybooking.es
  * Description:       Simple plugin to create a Custom Post Types for Mybooking's documentation
- * Version:           1.0.5
+ * Version:           1.0.3
  * Author:            Mybooking Team
  * Author URI:        https://mybooking.es
  * License:           GPL-2.0+
@@ -40,248 +40,13 @@ add_action( 'wp_enqueue_scripts', 'mybooking_docs_css' );
 
 
 /**
- * Register Mybooking Docs Custom Post Type
+ * Call CPTs
  *
- * @since 1.0.1
+ * @since 1.0.3
  */
-function mybooking_docs() {
-
-	$labels = array(
-		'name'                  => _x( 'Docs', 'Post Type General Name', 'mybooking-docs' ),
-		'singular_name'         => _x( 'Doc', 'Post Type Singular Name', 'mybooking-docs' ),
-		'menu_name'             => __( 'Mybooking Docs', 'mybooking-docs' ),
-		'name_admin_bar'        => __( 'Mybooking Doc', 'mybooking-docs' ),
-		'archives'              => __( 'Doc Archives', 'mybooking-docs' ),
-		'attributes'            => __( 'Doc Attributes', 'mybooking-docs' ),
-		'parent_item_colon'     => __( 'Parent Doc:', 'mybooking-docs' ),
-		'all_items'             => __( 'All Docs', 'mybooking-docs' ),
-		'add_new_item'          => __( 'Add New Doc', 'mybooking-docs' ),
-		'add_new'               => __( 'Add New', 'mybooking-docs' ),
-		'new_item'              => __( 'New Doc', 'mybooking-docs' ),
-		'edit_item'             => __( 'Edit Doc', 'mybooking-docs' ),
-		'update_item'           => __( 'Update Doc', 'mybooking-docs' ),
-		'view_item'             => __( 'View Doc', 'mybooking-docs' ),
-		'view_items'            => __( 'View Docs', 'mybooking-docs' ),
-		'search_items'          => __( 'Search Doc', 'mybooking-docs' ),
-		'not_found'             => __( 'Not found', 'mybooking-docs' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'mybooking-docs' ),
-		'featured_image'        => __( 'Featured Image', 'mybooking-docs' ),
-		'set_featured_image'    => __( 'Set featured image', 'mybooking-docs' ),
-		'remove_featured_image' => __( 'Remove featured image', 'mybooking-docs' ),
-		'use_featured_image'    => __( 'Use as featured image', 'mybooking-docs' ),
-		'insert_into_item'      => __( 'Insert into Doc', 'mybooking-docs' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Doc', 'mybooking-docs' ),
-		'items_list'            => __( 'Docs list', 'mybooking-docs' ),
-		'items_list_navigation' => __( 'Docs list navigation', 'mybooking-docs' ),
-		'filter_items_list'     => __( 'Filter Docs list', 'mybooking-docs' ),
-	);
-	$rewrite = array(
-		'slug'                  => 'docs',
-		'with_front'            => true,
-		'pages'                 => true,
-		'feeds'                 => true,
-	);
-	$args = array(
-		'label'                 => __( 'Doc', 'mybooking-docs' ),
-		'description'           => __( 'Mybooking technical articles.', 'mybooking-docs' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt' ),
-		'taxonomies'            => array( '' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 100,
-		'menu_icon'             => 'dashicons-editor-alignleft',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'rewrite'               => $rewrite,
-		'capability_type'       => 'post',
-		'show_in_rest'          => true,
-	);
-	register_post_type( 'docs', $args );
-
-}
-add_action( 'init', 'mybooking_docs', 0 );
-
-
-/**
- * Register taxonomies for Docs CPT
- *
- * @since 1.0.2
- */
-function mybooking_docs_taxonomies() {
-    register_taxonomy(
-        'developer-docs',
-        'docs',
-        array(
-            'labels' => array(
-                'name' 					=> __( 'Docs category', 'mybooking-docs' ),
-                'add_new_item' 	=> __( 'Add Docs category', 'mybooking-docs' ),
-                'new_item_name' => __( 'New Docs category', 'mybooking-docs' )
-            ),
-            'show_ui' 					=> true,
-						'show_in_rest' 			=> true,
-						'show_admin_column' => true,
-            'show_tagcloud' 		=> false,
-            'hierarchical' 			=> true,
-
-        )
-    );
-}
-add_action( 'init', 'mybooking_docs_taxonomies', 0 );
-
-
-/**
- * Register Mybooking Help Custom Post Type
- *
- * @since 1.0.1
- */
-function mybooking_help() {
-
-	$labels = array(
-		'name'                  => _x( 'Help', 'Post Type General Name', 'mybooking-docs' ),
-		'singular_name'         => _x( 'Help', 'Post Type Singular Name', 'mybooking-docs' ),
-		'menu_name'             => __( 'Mybooking Help', 'mybooking-docs' ),
-		'name_admin_bar'        => __( 'Mybooking Help', 'mybooking-docs' ),
-		'archives'              => __( 'Help Archives', 'mybooking-docs' ),
-		'attributes'            => __( 'Help Attributes', 'mybooking-docs' ),
-		'parent_item_colon'     => __( 'Parent Help:', 'mybooking-docs' ),
-		'all_items'             => __( 'All Help', 'mybooking-docs' ),
-		'add_new_item'          => __( 'Add New Help', 'mybooking-docs' ),
-		'add_new'               => __( 'Add New', 'mybooking-docs' ),
-		'new_item'              => __( 'New Help', 'mybooking-docs' ),
-		'edit_item'             => __( 'Edit Help', 'mybooking-docs' ),
-		'update_item'           => __( 'Update Help', 'mybooking-docs' ),
-		'view_item'             => __( 'View Help', 'mybooking-docs' ),
-		'view_items'            => __( 'View Help', 'mybooking-docs' ),
-		'search_items'          => __( 'Search Help', 'mybooking-docs' ),
-		'not_found'             => __( 'Not found', 'mybooking-docs' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'mybooking-docs' ),
-		'featured_image'        => __( 'Featured Image', 'mybooking-docs' ),
-		'set_featured_image'    => __( 'Set featured image', 'mybooking-docs' ),
-		'remove_featured_image' => __( 'Remove featured image', 'mybooking-docs' ),
-		'use_featured_image'    => __( 'Use as featured image', 'mybooking-docs' ),
-		'insert_into_item'      => __( 'Insert into Help', 'mybooking-docs' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Help', 'mybooking-docs' ),
-		'items_list'            => __( 'Help list', 'mybooking-docs' ),
-		'items_list_navigation' => __( 'Help list navigation', 'mybooking-docs' ),
-		'filter_items_list'     => __( 'Filter Help list', 'mybooking-docs' ),
-	);
-	$rewrite = array(
-		'slug'                  => 'help',
-		'with_front'            => true,
-		'pages'                 => true,
-		'feeds'                 => true,
-	);
-	$args = array(
-		'label'                 => __( 'Help', 'mybooking-docs' ),
-		'description'           => __( 'Mybooking tutorial and guides.', 'mybooking-docs' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt' ),
-		'taxonomies'            => array( '' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => true,
-		'menu_position'         => 100,
-		'menu_icon'             => 'dashicons-editor-help',
-		'show_in_admin_bar'     => true,
-		'show_in_nav_menus'     => true,
-		'can_export'            => true,
-		'has_archive'           => true,
-		'exclude_from_search'   => false,
-		'publicly_queryable'    => true,
-		'rewrite'               => $rewrite,
-		'capability_type'       => 'post',
-		'show_in_rest'          => true,
-	);
-	register_post_type( 'help', $args );
-
-}
-add_action( 'init', 'mybooking_help', 0 );
-
-
-/**
- * Register taxonomies for Help CPT
- *
- * @since 1.0.2
- */
-function mybooking_help_taxonomies() {
-    register_taxonomy(
-        'help-center',
-        'help',
-        array(
-            'labels' => array(
-                'name' 					=> __( 'Help category', 'mybooking-docs' ),
-                'add_new_item' 	=> __( 'Add Help category', 'mybooking-docs' ),
-                'new_item_name' => __( 'New Help category', 'mybooking-docs' )
-            ),
-            'show_ui' 					=> true,
-						'show_in_rest' 			=> true,
-						'show_admin_column' => true,
-            'show_tagcloud' 		=> false,
-            'hierarchical' 			=> true,
-
-        )
-    );
-
-}
-add_action( 'init', 'mybooking_help_taxonomies', 0 );
-
-
-/**
- * Add templates for new taxonomies
- *
- * @since 1.0.2
- */
-
-// Help
-function mybooking_help_single_template( $single_help_template ){
- 	global $post;
-
-	if ( $post->post_type == 'help' ) {
-	  $single_help_template = plugin_dir_path(__FILE__) . 'templates/single-docs.php';
-	}
-	return $single_help_template;
-}
-add_filter( 'single_template','mybooking_help_single_template' );
-
-function mybooking_help_archives_template( $archive_help_template ){
-  global $post;
-
-  if ( $post->post_type == 'help' ) {
-    $archive_help_template = plugin_dir_path(__FILE__) . 'templates/archives-docs.php';
-  }
-  return $archive_help_template;
-}
-add_filter( 'archive_template','mybooking_help_archives_template' );
-
-// Docs
-function mybooking_docs_single_template( $single_docs_template ){
- 	global $post;
-
-	if ( $post->post_type == 'docs' ) {
-	  $single_docs_template = plugin_dir_path(__FILE__) . 'templates/single-docs.php';
-	}
-	return $single_docs_template;
-}
-add_filter( 'single_template','mybooking_docs_single_template' );
-
-function mybooking_docs_archives_template( $archive_docs_template ){
-  global $post;
-
-  if ( $post->post_type == 'docs' ) {
-    $archive_docs_template = plugin_dir_path(__FILE__) . 'templates/archives-docs.php';
-  }
-  return $archive_docs_template;
-}
-add_filter( 'archive_template','mybooking_docs_archives_template' );
-
+require_once('post-types/doc-post.php');
+require_once('post-types/help-post.php');
+require_once('post-types/portfolio-post.php');
 
 
 /**
@@ -311,6 +76,20 @@ function mybooking_docs_sidebars() {
     ) );
 }
 add_action( 'widgets_init', 'mybooking_docs_sidebars' );
+
+
+/**
+ * Limits excerpt length
+ *
+ * @since 1.0.2
+ * @see https://wordpress.stackexchange.com/a/70914
+ *
+ * Usage: <?php echo mybooking_breadcrumbs(); ?>
+ */
+function mybooking_excerpt( $length ) {
+    return 30;
+}
+add_filter( 'excerpt_length', 'mybooking_excerpt', 999 );
 
 
 /**
