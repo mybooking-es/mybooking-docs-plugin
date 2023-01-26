@@ -891,9 +891,10 @@ button.mb-button a:hover  {
 }
 
 .mybooking-entry-links {
-  padding: 10px!important;
+  padding: 20px!important;
   font-size: 20px;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
 }
 
 .mybooking-entry-links .post-page-numbers {
