@@ -69,6 +69,10 @@ get_header(); ?>
           			array(
           				'before' => '<div class="mybooking-entry-links">' . esc_html_x( 'Pages', 'pages_navigation', 'mybooking' ),
           				'after'  => '</div>',
+									'next_or_number'	=> 'next',
+									'separator'			=> ' | ',
+									'nextpagelink'		=> __( 'Next &raquo', 'textdomain' ),
+									'previouspagelink'	=> __( '&laquo Previous', 'textdomain' ),
           			)
           		);
           		?>

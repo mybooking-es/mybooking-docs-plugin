@@ -891,13 +891,23 @@ button.mb-button a:hover  {
 }
 
 .mybooking-entry-links {
+  padding: 0!important;
   font-size: 20px;
+  width: auto !important;
+  display: inline-block;
 }
 
-.mybooking-entry-links .page-numbers.current {
+.mybooking-entry-links .post-page-numbers {
+  margin: 0 10px;
+}
+
+.mybooking-entry-links .post-page-numbers.current {
   background-color: #326e44;
   color: #fff;
   width: 28px;
   height: 28px;
   border-radius: 28px;
+  display: inline-block;
+  text-align: center;
+  line-height: 28px;
 }
