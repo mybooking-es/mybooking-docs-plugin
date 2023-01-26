@@ -63,6 +63,16 @@ get_header(); ?>
     					  <?php the_content(); ?>
     				  </div>
 
+							<!-- Post pages numbers -->
+          		<?php
+          		wp_link_pages(
+          			array(
+          				'before' => '<div class="mybooking-entry-links">' . esc_html_x( 'Pages', 'pages_navigation', 'mybooking' ),
+          				'after'  => '</div>',
+          			)
+          		);
+          		?>
+
 							<!-- Categories navigation -->
 
 							<div class="mybooking-docs_footer-nav mb-row row">
@@ -126,16 +136,6 @@ get_header(); ?>
 									</ul>
 								</div>
 							</div>
-
-							<!-- Link pages -->
-          		<?php
-          		wp_link_pages(
-          			array(
-          				'before' => '<div class="mybooking-entry-links">' . esc_html_x( 'Pages', 'pages_navigation', 'mybooking' ),
-          				'after'  => '</div>',
-          			)
-          		);
-          		?>
 
           		<!-- Footer -->
     					<footer class="entry-footer">

@@ -1,5 +1,10 @@
 # Mybooking Docs Plugin Changelog
 
+## 1.0.8
+
+### Fixed
+- Post pagination numbers over category navigation
+
 ## 1.0.7
 
 ### Fixed

@@ -889,3 +889,15 @@ button.mb-button a:hover  {
   padding: .5rem 1rem;
   height: 50px;
 }
+
+.mybooking-entry-links {
+  font-size: 20px;
+}
+
+.mybooking-entry-links .page-numbers.current {
+  background-color: #326e44;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+}
