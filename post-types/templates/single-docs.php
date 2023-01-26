@@ -67,7 +67,10 @@ get_header(); ?>
           		<?php
           		wp_link_pages(
           			array(
+          				'before' => '<div class="mybooking-entry-links">',
+          				'after'  => '</div>',
 									'next_or_number'	=> 'next',
+									'separator'			=> ' | ',
 									'nextpagelink'		=> __( 'Página siguiente &raquo', 'mybooking-docs' ),
 									'previouspagelink'	=> __( '&laquo Página anterior', 'mybooking-docs' ),
           			)
