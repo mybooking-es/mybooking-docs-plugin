@@ -891,23 +891,22 @@ button.mb-button a:hover  {
 }
 
 .mybooking-entry-links {
-  padding: 0!important;
+  padding: 10px!important;
   font-size: 20px;
-  width: auto !important;
   display: inline-block;
 }
 
 .mybooking-entry-links .post-page-numbers {
-  margin: 0 10px;
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: 1px solid var(--brand-primary);
+  border-radius: 8px;
+	background-color: var(--brand-primary);
+	color: #fff!important;
 }
 
-.mybooking-entry-links .post-page-numbers.current {
-  background-color: #326e44;
-  color: #fff;
-  width: 28px;
-  height: 28px;
-  border-radius: 28px;
-  display: inline-block;
-  text-align: center;
-  line-height: 28px;
+.mybooking-entry-links .post-page-numbers:hover {
+  text-decoration: none;
+	background-color: #fff!important;
+	color: var(--brand-primary)!important;
 }
