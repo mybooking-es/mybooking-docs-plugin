@@ -1,6 +1,6 @@
 # Mybooking Docs Plugin Changelog
 
-## 1.0.9
+## 1.0.10
 
 ### Refactor
 - Better post pagination
